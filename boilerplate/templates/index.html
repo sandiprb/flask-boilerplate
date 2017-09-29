@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+
+  <div class="starter-template">
+    <h1>Flask boilerplate front end with Bootstrap</h1>
+    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+  </div>
+
+  <form method="POST" action="/">
+    {{ form.csrf_token }}
+    {{ form.name.label }} {{ form.name(size=20) }}
+    {{ form.emailid.label }} {{ form.emailid(size=40) }}
+    {{ form.mobileno.label }} {{ form.mobileno(size=20) }}
+    <input type="submit" value="Go">
+
+    <div class="container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email ID</th>
+              <th>Mobile No.</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for contact in contacts %}
+            <tr>
+              <th scope="row">{{ loop.index	}}</th>
+              <td>{{ contact.name }}</td>
+              <td>{{ contact.emailid }}</td>
+              <td>{{ contact.mobileno }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+
+    </div>
+
+</form>
+</div><!-- /.container -->
+{% endblock %}
