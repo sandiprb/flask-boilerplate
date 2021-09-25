@@ -15,3 +15,5 @@ def home():
             flash('Record was successfully added')
         return redirect('/')
     return render_template('index.html', form=form, contacts = ContactForm.query.all())
+
+
